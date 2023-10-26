@@ -1,0 +1,58 @@
+- hosts: teste
+  gather_facts: false
+  tasks:
+   - name: choco feature
+     win_chocolatey_feature:
+        name: exitOnRebootDetected
+        state: enabled
+   - name: choco upgrade
+     win_chocolatey:
+        name: chocolatey
+        package_params: "-y"
+        state: latest
+   - name: Remover Google file stream
+     win_chocolatey:
+        name: google-drive-file-stream
+        state: absent
+   - name: Install Chrome
+     win_chocolatey:
+        name: googlechrome
+        ignore_checksums: true
+        force: true
+        package_params: "-y"
+        state: latest
+   - name: Install Google Drive
+     win_chocolatey:
+        name: googledrive
+        force: true
+        package_params: "-y"
+        ignore_checksums: true
+        state: latest
+   - name: Install Teamviewer
+     win_chocolatey:
+        name: teamviewer
+        force: true
+        package_params: "-y"
+        ignore_checksums: true
+        state: present
+   - name: Install multiplos
+     win_chocolatey:
+        name:
+         - firefox
+         - easy7zip
+         - tightvnc
+         - thunderbird
+         - vlc
+         - foxitreader
+        force: true
+        package_params: "-y"
+        state: latest
+   - name: Install multiplos
+     win_chocolatey:
+        name:
+         - jre8
+         - libreoffice-still
+        force: true
+        package_params: "-y"
+        ignore_checksums: true
+        state: latest
