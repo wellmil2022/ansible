@@ -1,0 +1,15 @@
+-  hosts: del01
+   gather_facts: false
+   tasks: 
+    - name: Install all critical and security updates
+      win_updates:
+        category_names:
+        - CriticalUpdates
+        - SecurityUpdates
+        state: installed
+      register: update_result
+    - name: Reboot host if required
+      win_reboot:
+        msg: "Esta máquina foi atualizada pelo NUTIC-PB e precisa ser reiniciada"
+        pre_reboot_delay: 360
+      when: update_result.reboot_required
