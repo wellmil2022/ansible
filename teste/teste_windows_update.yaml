@@ -1,4 +1,4 @@
--  hosts: teste
+-  hosts: all
    gather_facts: false
    tasks: 
     - name: Install all critical and security updates

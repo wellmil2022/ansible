@@ -1,4 +1,4 @@
-- hosts: del01
+- hosts: all
   gather_facts: false
   tasks:
    - name: choco feature
