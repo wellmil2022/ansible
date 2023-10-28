@@ -27,7 +27,7 @@
         force: true
         package_params: "-y"
         ignore_checksums: true
-        state: reinstaled
+        state: reinstalled
    - name: Install Teamviewer
      win_chocolatey:
         name: teamviewer
