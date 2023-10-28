@@ -18,20 +18,20 @@
      win_chocolatey:
         name: googlechrome
         ignore_checksums: true
-        force: true
+#        force: true
         package_params: "-y"
         state: latest
    - name: Install Google Drive
      win_chocolatey:
         name: googledrive
-        force: true
+ #       force: true
         package_params: "-y"
         ignore_checksums: true
         state: reinstalled
    - name: Install Teamviewer
      win_chocolatey:
         name: teamviewer
-        force: true
+ #       force: true
         package_params: "-y"
         ignore_checksums: true
         state: present
@@ -44,18 +44,18 @@
          - thunderbird
          - vlc
          - foxitreader
-        force: true
+         - libreoffice-still
+#        force: true
         package_params: "-y"
         state: latest
-   - name: Install multiplos
+   - name: Install java
      win_chocolatey:
         name:
          - jre8
-         - libreoffice-still
-        force: true
+#        force: true
         package_params: "-y"
         ignore_checksums: true
-        state: latest
+        state: reinstalled
    - name: Reboot host if required 
      win_reboot:
         msg: "Esta máquina foi atualizada pelo NUTIC-PB e será reiniicada em 5 minutos ..."
