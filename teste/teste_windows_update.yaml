@@ -10,6 +10,6 @@
       register: update_result
     - name: Reboot host if required
       win_reboot:
-        msg: "Esta máquina foi atualizada pelo NUTIC-PB e precisa ser reiniciada"
+        msg: "Esta máquina foi atualizada pelo NUTIC-PB e será reiniicada em 2 minutos ..."
         pre_reboot_delay: 120
 #      when: update_result.reboot_required
