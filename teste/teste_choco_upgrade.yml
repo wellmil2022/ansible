@@ -14,7 +14,6 @@
      win_chocolatey:
         name: google-drive-file-stream
         state: absent
-        register: file_stream
    - name: Install Chrome
      win_chocolatey:
         name: googlechrome
@@ -28,8 +27,7 @@
         force: true
         package_params: "-y"
         ignore_checksums: true
-        state: latest
-        register: googledrive
+        state: reinstaled
    - name: Install Teamviewer
      win_chocolatey:
         name: teamviewer
@@ -58,15 +56,8 @@
         package_params: "-y"
         ignore_checksums: true
         state: latest
-   - name: Reboot host if required (file_stream)
+   - name: Reboot host if required 
      win_reboot:
-        msg: "Esta máquina foi atualizada pelo NUTIC-PB e será reiniicada em 2 minutos ..."
-        pre_reboot_delay: 120
-        post_reboot_delay: 10
-     when: file_stream.reboot_required
-   - name: Reboot host if required (googleDrive)
-     win_reboot:
-        msg: "Esta máquina foi atualizada pelo NUTIC-PB e será reiniicada em 2 minutos ..."
-        pre_reboot_delay: 120
-        post_reboot_delay: 10
-     when: googledrive.reboot_required
+        msg: "Esta máquina foi atualizada pelo NUTIC-PB e será reiniicada em 5 minutos ..."
+        pre_reboot_delay: 300
+        post_reboot_delay: 60
