@@ -12,5 +12,4 @@
       win_reboot:
         msg: "Esta máquina foi atualizada pelo NUTIC-PB e precisa ser reiniciada"
         pre_reboot_delay: 120
-        post_reboot_delay: 10
-      when: update_result.reboot_required
+#      when: update_result.reboot_required
